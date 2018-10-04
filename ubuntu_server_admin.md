@@ -1,11 +1,46 @@
 # Ubuntu Server Admin
 
-## Preperation
+## Maintenance
 
 ### Update
 Always start by ensuring the server is up to date.
 
     sudo apt-get update
+
+## Users and Groups
+
+### Creating users and groups
+
+    # adds a user and implicitly creates a group with the same name
+    sudo adduser headphones
+    # marks a user as a `sudoer`
+    usermod -aG sudo headphones
+    # alternatively - create a user for running system software
+    sudo adduser --system --no-create-home headphones
+
+### Managing Filesystem Permissions
+
+Files and Directories on posix style sytems are managed by defining the access for the owner, group and guest.
+
+Set the owner to headphones and the group to nogroup for all objects
+
+    sudo chown headphones:nogroup -R /opt/headphones
+
+Set the permissions for a specific folder to give the owner read,write and execute, and group and guest are set to read,execute.
+
+    sudo chmod 755 downloads
+
+To show the effective rights and groups of a user
+
+    id              # current user
+    id username     # some other user
+
+To add a user to a group
+
+    sudo usermod -a -G debian-transmission user
+
+
+
 
 ## Install your software
 As an example, I will be installing 'Headphones'.

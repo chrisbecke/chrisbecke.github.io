@@ -9,10 +9,10 @@ Creates a new UI context. A UI context must be created in order to create any fr
     context = UI.CreateContext(name)   -- Context <- string
 
 #### Parameters:
-**name** - A descriptive name for this element. Used for error reports and performance information. May be shown to end-users.
+**name** - A descriptive name for this element. Used for error reports and performance information. May be shown to end-users.  
 
 #### Return Values:
-**context** - A new context. Contexts are guaranteed to have at least the capabilities of a Frame.
+**context** - A new context. Contexts are guaranteed to have at least the capabilities of a Frame.  
 
 ## UI.CreateFrame
 Creates a new frame. Frames are the blocks that all addon UIs are made out of. Since all frames must have a parent, you'll need to create a Context before any frames. See UI.CreateContext.
@@ -34,12 +34,12 @@ List of valid frame types:
     frame = UI.CreateFrame(type, name, parent)   -- Frame <- string, string, Element
 
 #### Parameters:
-**type** - The type of your new frame.
-**name** - A descriptive name for this element. Used for error reports and performance information. May be shown to end-users.
-**parent** - The new parent for this frame.
+**type** - The type of your new frame.  
+**name** - A descriptive name for this element. Used for error reports and performance information. May be shown to end-users.  
+**parent** - The new parent for this frame.  
 
 #### Return Values:
-**frame** - Your new frame.
+**frame** - Your new frame.  
 
 ### UI.Frame
 Lists all frames that have been created. Organizes them under [addonIdentifier][contextIdentifier][constructionOrder]. As an example, if TestAddon created four frames named UIElement, the second would be UI.Frame.TestAddon.UIElement[2].
@@ -53,10 +53,10 @@ Attaches an event handler to an event.
     Layout:EventAttach(handle, callback, label, priority)   -- eventFrame, function, string, number
 
 #### Parameters:
-**callback** - A global event handler function. This will be called when the event fires. The first parameter will be the frame that the event is called on, the second parameter will be the standard frame event handle, any other parameters will follow that.
-**priority** - Priority of the event handler. Higher numbers trigger first.
-**label** - Human-readable label used to identify the handler in error reports, performance reports, and for later detaching.
-**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.
+**callback** - A global event handler function. This will be called when the event fires. The first parameter will be the frame that the event is called on, the second parameter will be the standard frame event handle, any other parameters will follow that.  
+**priority** - Priority of the event handler. Higher numbers trigger first.  
+**label** - Human-readable label used to identify the handler in error reports, performance reports, and for later detaching.  
+**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -70,11 +70,11 @@ Detaches an event handler from an event. Any parameter can be 'nil', and this is
     Layout:EventDetach(handle, callback, label, priority, owner)   -- eventFrame, function/nil, string/nil, number/nil, string/nil
 
 #### Parameters:
-**owner** - Owner to search for.
-**label** - Human-readable label used to identify the handler in error reports, performance reports, and for later detaching.
-**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.
-**callback** - A callback function to search for.
-**priority** - Priority of the event handler. Higher numbers trigger first.
+**owner** - Owner to search for.  
+**label** - Human-readable label used to identify the handler in error reports, performance reports, and for later detaching.  
+**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.  
+**callback** - A callback function to search for.  
+**priority** - Priority of the event handler. Higher numbers trigger first.  
 
 ### Layout:EventList
 Lists the current event handlers for an event.
@@ -82,17 +82,17 @@ Lists the current event handlers for an event.
     result = Layout:EventList(handle)   -- table <- eventFrame
 
 #### Parameters:
-**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.
+**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.  
 
 #### Return Values:
-**result** - A table of event handlers for this event.
+**result** - A table of event handlers for this event.  
 
 #### Returned Members:
-**owner** - Owner to search for.
-**macro** - The macro that will run when the event fires.
-**label** - Human-readable label used to identify the handler in error reports, performance reports, and for later detaching.
-**handler** - The handler that will be called when the event fires.
-**priority** - Priority of the event handler. Higher numbers trigger first.
+**owner** - Owner to search for.  
+**macro** - The macro that will run when the event fires.  
+**label** - Human-readable label used to identify the handler in error reports, performance reports, and for later detaching.  
+**handler** - The handler that will be called when the event fires.  
+**priority** - Priority of the event handler. Higher numbers trigger first.  
 
 ### Layout:EventMacroGet
 Gets the macro that will be triggered when this event occurs.
@@ -100,10 +100,10 @@ Gets the macro that will be triggered when this event occurs.
     macro = Layout:EventMacroGet(handle)   -- string/nil <- eventFrame
 
 #### Parameters:
-**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.
+**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.  
 
 #### Return Values:
-**macro** - The macro that will be triggered.
+**macro** - The macro that will be triggered.  
 
 ### Layout:EventMacroSet
 Sets the macro that will be triggered when this event occurs.
@@ -111,8 +111,8 @@ Sets the macro that will be triggered when this event occurs.
     Layout:EventMacroSet(handle, macro)   -- eventFrame, string/nil
 
 #### Parameters:
-**macro** - The macro to trigger. nil to clear the macro.
-**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.
+**macro** - The macro to trigger. nil to clear the macro.  
+**handle** - A handle to a frame event, usually pulled out of the "Event.UI." hierarchy.  
 
 #### Restrictions:
 Permitted only on a frame with the "restricted" SecureMode while the addon environment is not secured.
@@ -123,7 +123,7 @@ Retrieves the Y position of the bottom edge of this element.
     bottom = Layout:GetBottom()   -- number <- void
 
 #### Return Values:
-**bottom** - The Y position of the bottom edge of this element.
+**bottom** - The Y position of the bottom edge of this element.  
 
 ### Layout:GetBounds
 Retrieves the complete bounds of this element.
@@ -131,10 +131,10 @@ Retrieves the complete bounds of this element.
     left, top, right, bottom = Layout:GetBounds()   -- number, number, number, number <- void
 
 #### Return Values:
-**right** - The X position of the right edge of this element.
-**left** - The X position of the left edge of this element.
-**bottom** - The Y position of the bottom edge of this element.
-**top** - The Y position of the top edge of this element.
+**right** - The X position of the right edge of this element.  
+**left** - The X position of the left edge of this element.  
+**bottom** - The Y position of the bottom edge of this element.  
+**top** - The Y position of the top edge of this element.  
 
 ### Layout:GetEventTable
 Retrieves the event table of this element. By default, this value is also stored in "this.Event".
@@ -142,7 +142,7 @@ Retrieves the event table of this element. By default, this value is also stored
     eventTable = Layout:GetEventTable()   -- table <- void
 
 #### Return Values:
-**eventTable** - The event table of this element.
+**eventTable** - The event table of this element.  
 
 ### Layout:GetHeight
 Retrieves the height of this element.
@@ -150,7 +150,7 @@ Retrieves the height of this element.
     height = Layout:GetHeight()   -- number <- void
 
 #### Return Values:
-**height** - The height of this element.
+**height** - The height of this element.  
 
 ### Layout:GetLeft
 Retrieves the X position of the left edge of this element.
@@ -158,7 +158,7 @@ Retrieves the X position of the left edge of this element.
     left = Layout:GetLeft()   -- number <- void
 
 #### Return Values:
-**left** - The X position of the left edge of this element.
+**left** - The X position of the left edge of this element.  
 
 ### Layout:GetName
 Retrieves the name of this element.
@@ -166,7 +166,7 @@ Retrieves the name of this element.
     name = Layout:GetName()   -- string <- void
 
 #### Return Values:
-**name** - The name of this element, as provided by the addon that created it.
+**name** - The name of this element, as provided by the addon that created it.  
 
 ### Layout:GetOwner
 Retrieves the owner of this element.
@@ -174,7 +174,7 @@ Retrieves the owner of this element.
     owner = Layout:GetOwner()   -- string <- void
 
 #### Return Values:
-**owner** - The owner of this element. Given as an addon identifier.
+**owner** - The owner of this element. Given as an addon identifier.  
 
 ### Layout:GetRight
 Retrieves the X position of the right edge of this element.
@@ -182,7 +182,7 @@ Retrieves the X position of the right edge of this element.
     right = Layout:GetRight()   -- number <- void
 
 #### Return Values:
-**right** - The X position of the right edge of this element.
+**right** - The X position of the right edge of this element.  
 
 ### Layout:GetTop
 Retrieves the Y position of the top edge of this element.
@@ -190,7 +190,7 @@ Retrieves the Y position of the top edge of this element.
     top = Layout:GetTop()   -- number <- void
 
 #### Return Values:
-**top** - The Y position of the top edge of this element.
+**top** - The Y position of the top edge of this element.  
 
 ### Layout:GetType
 Retrieves the type of this element.
@@ -198,7 +198,7 @@ Retrieves the type of this element.
     type = Layout:GetType()   -- string <- void
 
 #### Return Values:
-**type** - The type of this element.
+**type** - The type of this element.  
 
 ### Layout:GetWidth
 Retrieves the width of this element.
@@ -206,7 +206,7 @@ Retrieves the width of this element.
     width = Layout:GetWidth()   -- number <- void
 
 #### Return Values:
-**width** - The width of this element.
+**width** - The width of this element.  
 
 ### Layout:ReadAll
 Read all set points and sizes from this frame.
@@ -214,7 +214,7 @@ Read all set points and sizes from this frame.
     results = Layout:ReadAll()   -- table <- void
 
 #### Return Values:
-**results** - Result table. Contains data in the following format: {x = {size = (size), [(position)] = {layout = (layout), position = (position), offset = (offset)}}, y = (the same thing)}.
+**results** - Result table. Contains data in the following format: {x = {size = (size), [(position)] = {layout = (layout), position = (position), offset = (offset)}}, y = (the same thing)}.  
 
 ### Layout:ReadHeight
 Read a set height from this frame.
@@ -222,7 +222,7 @@ Read a set height from this frame.
     height = Layout:ReadHeight()   -- number <- void
 
 #### Return Values:
-**height** - The parameter passed to SetHeight(), or nil if no such parameter has been passed.
+**height** - The parameter passed to SetHeight(), or nil if no such parameter has been passed.  
 
 ### Layout:ReadPoint
 Read a set point from this frame. Must be given a single-axis coordinate.
@@ -233,15 +233,15 @@ Read a set point from this frame. Must be given a single-axis coordinate.
     origin, offset = Layout:ReadPoint(x, y)   -- string, number <- number/nil, number/nil
 
 #### Parameters:
-**y** - Y coordinate of the point. Either this or X must be nil.
-**x** - X coordinate of the point. Either this or Y must be nil.
-**coordinate** - Named coordinate. Must be a one-axis coordinate.
+**y** - Y coordinate of the point. Either this or X must be nil.  
+**x** - X coordinate of the point. Either this or Y must be nil.  
+**coordinate** - Named coordinate. Must be a one-axis coordinate.  
 
 #### Return Values:
-**position** - The position on "layout" that this point is pinned. 0 refers to the top or left edge, 1 refers to the bottom or right edge.
-**offset** - The offset in pixels from the source location to the actual location.
-**layout** - The table that this point is pinned to.
-**origin** - The string "origin".
+**position** - The position on "layout" that this point is pinned. 0 refers to the top or left edge, 1 refers to the bottom or right edge.  
+**offset** - The offset in pixels from the source location to the actual location.  
+**layout** - The table that this point is pinned to.  
+**origin** - The string "origin".  
 
 ### Layout:ReadWidth
 Read a set width from this frame.
@@ -249,7 +249,7 @@ Read a set width from this frame.
     width = Layout:ReadWidth()   -- number <- void
 
 #### Return Values:
-**width** - The parameter passed to SetWidth(), or nil if no such parameter has been passed.
+**width** - The parameter passed to SetWidth(), or nil if no such parameter has been passed.  
 
 ## Layout Events
 
@@ -259,28 +259,31 @@ Signals a change in layer.
     Event.UI.Layout.Layer(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
+
 ### Event.UI.Layout.Move
 Signals a change in the top-left corner's position. May be delayed after the actual movement.
 
     Event.UI.Layout.Move(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
+
 ### Event.UI.Layout.Size
 Signals a change in size. May be delayed after the actual change.
 
     Event.UI.Layout.Size(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
+
 ### Event.UI.Layout.Strata
 Signals a change in strata.
 
     Event.UI.Layout.Strata(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
 
 ## Native
 Native -> [Layout]
@@ -291,7 +294,7 @@ Gets the native item's layer order.
     layer = Native:GetLayer()   -- number <- void
 
 #### Return Values:
-**layer** - The render layer of this frame. See Frame:SetLayer for details.
+**layer** - The render layer of this frame. See Frame:SetLayer for details.  
 
 ### Native:GetLoaded
 Gets whether or not this native element is loaded and rendering.
@@ -299,7 +302,7 @@ Gets whether or not this native element is loaded and rendering.
     loaded = Native:GetLoaded()   -- boolean <- void
 
 #### Return Values:
-**loaded** - true if it is loaded.
+**loaded** - true if it is loaded.  
 
 ### Native:GetSecureMode
 Get the native element's secure mode. See Frame:SetSecureMode() for details.
@@ -307,7 +310,7 @@ Get the native element's secure mode. See Frame:SetSecureMode() for details.
     secure = Native:GetSecureMode()   -- string <- void
 
 #### Return Values:
-**secure** - The current secure mode.
+**secure** - The current secure mode.  
 
 ### Native:GetStrata
 Gets the native item's strata. The strata determines render order on a coarser level than Layer does, as well as determining how far an element is brought to the front when clicked on.
@@ -315,7 +318,7 @@ Gets the native item's strata. The strata determines render order on a coarser l
     strata = Native:GetStrata()   -- string <- void
 
 #### Return Values:
-**strata** - The item's current strata.
+**strata** - The item's current strata.  
 
 ### Native:GetStrataList
 Gets a list of valid stratas for this native element.
@@ -323,7 +326,7 @@ Gets a list of valid stratas for this native element.
     stratas = Native:GetStrataList()   -- table <- void
 
 #### Return Values:
-**stratas** - An array of valid stratas, in order.
+**stratas** - An array of valid stratas, in order.  
 
 ### Native:SetLayer
 Sets the frame layer for this native element. This can be any number. Frames are drawn in ascending order. If two frames have the same layer number, then the order of those frames is undefined, but guarantees no Z-fighting. Frames are always drawn after their parents.
@@ -331,7 +334,7 @@ Sets the frame layer for this native element. This can be any number. Frames are
     Native:SetLayer(layer)   -- number
 
 #### Parameters:
-**layer** - The new layer for this frame.
+**layer** - The new layer for this frame.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -342,7 +345,7 @@ Sets the strata for this native element.
     Native:SetStrata(layer)   -- string
 
 #### Parameters:
-**layer** - The new layer for this frame.
+**layer** - The new layer for this frame.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -355,7 +358,7 @@ Signals a change in this native frame's loaded state.
     Event.UI.Native.Loaded(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
 
 ## Element
 Element -> [Layout]
@@ -366,7 +369,7 @@ Returns a table containing all of this element's children.
     children = Element:GetChildren()   -- table <- void
 
 #### Return Values:
-**children** - A table containing this element's children.
+**children** - A table containing this element's children.  
 
 ### Element:GetKeyFocus
 Gets the key focus status.
@@ -374,7 +377,7 @@ Gets the key focus status.
     focus = Element:GetKeyFocus()   -- boolean <- void
 
 #### Return Values:
-**focus** - Whether this frame is the current key focus.
+**focus** - Whether this frame is the current key focus.  
 
 ### Element:GetMouseMasking
 Get the current mouse masking mode. See SetMouseMasking for details.
@@ -382,7 +385,7 @@ Get the current mouse masking mode. See SetMouseMasking for details.
     mask = Element:GetMouseMasking()   -- string <- void
 
 #### Return Values:
-**mask** - The current mouse masking mode.
+**mask** - The current mouse masking mode.  
 
 ### Element:GetVisible
 Gets the visibility flag for this frame.
@@ -390,7 +393,7 @@ Gets the visibility flag for this frame.
     visible = Element:GetVisible()   -- boolean <- void
 
 #### Return Values:
-**visible** - This frame's visibility flag, as set by SetVisible. Does not check the visibility flags of the frame's parents.
+**visible** - This frame's visibility flag, as set by SetVisible. Does not check the visibility flags of the frame's parents.  
 
 ### Element:SetAlpha
 Sets the alpha transparency multiplier for this frame and its children.
@@ -398,7 +401,7 @@ Sets the alpha transparency multiplier for this frame and its children.
     Element:SetAlpha(alpha)   -- number
 
 #### Parameters:
-**alpha** - The new alpha multiplier. 1 is fully opaque, 0 is fully transparent.
+**alpha** - The new alpha multiplier. 1 is fully opaque, 0 is fully transparent.  
 
 ### Element:SetBackgroundColor
 Sets the background color of this frame.
@@ -407,10 +410,10 @@ Sets the background color of this frame.
     Element:SetBackgroundColor(r, g, b, a)   -- number, number, number, number
 
 #### Parameters:
-**b** - Blue.
-**r** - Red.
-**a** - Alpha. 1 is fully opaque, 0 is fully transparent. Defaults to 1.
-**g** - Green.
+**b** - Blue.  
+**r** - Red.  
+**a** - Alpha. 1 is fully opaque, 0 is fully transparent. Defaults to 1.  
+**g** - Green.  
 
 ### Element:SetKeyFocus
 Sets the key focus status. Note that only one frame can be the key focus at a time. Focusing on another frame will automatically unset the current focus.
@@ -418,7 +421,7 @@ Sets the key focus status. Note that only one frame can be the key focus at a ti
     Element:SetKeyFocus(focus)   -- boolean
 
 #### Parameters:
-**focus** - The new key focus setting.
+**focus** - The new key focus setting.  
 
 ### Element:SetMouseMasking
 Sets the frame's mouse masking mode.
@@ -426,7 +429,7 @@ Sets the frame's mouse masking mode.
     Element:SetMouseMasking(mask)   -- string
 
 #### Parameters:
-**mask** - The new mouse masking mode. "full" is the standard mode, and means that creating any Left, Right, or movement-related mouse event will cause the frame to accept and consume any event from any of those types. "limited" causes the frame to accept and consume only events for buttons that have been hooked, so that hooking "LeftDown" will still pass Right mouse events through the frame. Note that hooking any mouse event will still consume MouseMove/In/Out events.
+**mask** - The new mouse masking mode. "full" is the standard mode, and means that creating any Left, Right, or movement-related mouse event will cause the frame to accept and consume any event from any of those types. "limited" causes the frame to accept and consume only events for buttons that have been hooked, so that hooking "LeftDown" will still pass Right mouse events through the frame. Note that hooking any mouse event will still consume MouseMove/In/Out events.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -437,7 +440,7 @@ Sets the frame's visibility flag. If set to false, then this frame and all its c
     Element:SetVisible(visible)   -- boolean
 
 #### Parameters:
-**visible** - The new visibility flag.
+**visible** - The new visibility flag.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -469,9 +472,9 @@ Clear a set point from this frame.
     Frame:ClearPoint(x, y)   -- number/nil, number/nil
 
 #### Parameters:
-**y** - Y coordinate of the point.
-**x** - X coordinate of the point.
-**coordinate** - Named coordinate.
+**y** - Y coordinate of the point.  
+**x** - X coordinate of the point.  
+**coordinate** - Named coordinate.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -490,7 +493,7 @@ Gets the frame's layer order.
     layer = Frame:GetLayer()   -- number <- void
 
 #### Return Values:
-**layer** - The render layer of this frame. See Frame:SetLayer for details.
+**layer** - The render layer of this frame. See Frame:SetLayer for details.  
 
 ### Frame:GetMouseoverUnit
 Gets the unit that is being represented by this frame.
@@ -498,7 +501,7 @@ Gets the unit that is being represented by this frame.
     unit = Frame:GetMouseoverUnit()   -- string <- void
 
 #### Return Values:
-**unit** - The current mouseover unit. May be nil if there is no mouseover unit.
+**unit** - The current mouseover unit. May be nil if there is no mouseover unit.  
 
 ### Frame:GetParent
 Gets the parent of this frame.
@@ -506,7 +509,7 @@ Gets the parent of this frame.
     parent = Frame:GetParent()   -- Element <- void
 
 #### Return Values:
-**parent** - The parent element of this frame.
+**parent** - The parent element of this frame.  
 
 ### Frame:GetSecureMode
 Get the current secure mode. See SetSecureMode for details.
@@ -514,7 +517,7 @@ Get the current secure mode. See SetSecureMode for details.
     secure = Frame:GetSecureMode()   -- string <- void
 
 #### Return Values:
-**secure** - The current secure mode.
+**secure** - The current secure mode.  
 
 ### Frame:GetStrata
 Gets the frame's strata. The strata determines render order on a coarser level than Layer does, as well as determining how far an element is brought to the front when clicked on.
@@ -522,7 +525,7 @@ Gets the frame's strata. The strata determines render order on a coarser level t
     strata = Frame:GetStrata()   -- string <- void
 
 #### Return Values:
-**strata** - The item's current strata.
+**strata** - The item's current strata.  
 
 ### Frame:GetStrataList
 Gets a list of valid stratas for this frame.
@@ -530,7 +533,7 @@ Gets a list of valid stratas for this frame.
     stratas = Frame:GetStrataList()   -- table <- void
 
 #### Return Values:
-**stratas** - An array of valid stratas, in order.
+**stratas** - An array of valid stratas, in order.  
 
 ### Frame:SetAllPoints
 Pins all the edges of this frame to the edges of a different frame. If no target is given, defaults to this frame's parent.
@@ -539,7 +542,7 @@ Pins all the edges of this frame to the edges of a different frame. If no target
     Frame:SetAllPoints(target)   -- Layout
 
 #### Parameters:
-**target** - Target Layout to pin this frame's edges to.
+**target** - Target Layout to pin this frame's edges to.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -550,7 +553,7 @@ Sets the height of this frame. Undefined results if the frame already has two pi
     Frame:SetHeight(height)   -- number
 
 #### Parameters:
-**height** - The new height of this frame.
+**height** - The new height of this frame.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -561,7 +564,7 @@ Sets the frame layer for this frame. This can be any number. Frames are drawn in
     Frame:SetLayer(layer)   -- number
 
 #### Parameters:
-**layer** - The new layer for this frame.
+**layer** - The new layer for this frame.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -573,7 +576,7 @@ Sets the unit that will be represented by this frame.
     Frame:SetMouseoverUnit(unit)   -- nil
 
 #### Parameters:
-**unit** - The new mouseover unit. May be a unit ID or a unit specifier. Pass in nil to disable the mouseover effect.
+**unit** - The new mouseover unit. May be a unit ID or a unit specifier. Pass in nil to disable the mouseover effect.  
 
 #### Restrictions:
 Permitted only on a frame with the "restricted" SecureMode while the addon environment is not secured.
@@ -584,7 +587,7 @@ Sets the parent of this frame. Circular dependencies result in undefined behavio
     Frame:SetParent(parent)   -- Element
 
 #### Parameters:
-**parent** - The new parent for this frame.
+**parent** - The new parent for this frame.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -601,7 +604,7 @@ Caveat: If the target is a frame set to the "restricted" SecureMode, and the cli
     Frame:SetPoint(...)   -- ...
 
 #### Parameters:
-**...** - This function's parameters are complicated. Read the above summary for details.
+**...** - This function's parameters are complicated. Read the above summary for details.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -615,7 +618,7 @@ At the moment, it is not possible to change from "restricted" back to "normal".
     Frame:SetSecureMode(secure)   -- string
 
 #### Parameters:
-**secure** - The new secure mode. Valid inputs are "normal" and "restricted".
+**secure** - The new secure mode. Valid inputs are "normal" and "restricted".  
 
 ### Frame:SetStrata
 Sets the strata for this frame.
@@ -623,7 +626,7 @@ Sets the strata for this frame.
     Frame:SetStrata(strata)   -- string
 
 #### Parameters:
-**strata** - The item's new strata. Must be one of the elements returned by :GetStrataList().
+**strata** - The item's new strata. Must be one of the elements returned by :GetStrataList().  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -634,7 +637,7 @@ Sets the width of this frame. Undefined results if the frame already has two pin
     Frame:SetWidth(width)   -- number
 
 #### Parameters:
-**width** - The new width of this frame.
+**width** - The new width of this frame.  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -649,9 +652,9 @@ Returns the current canvas shape.
     shape, fill, stroke = Canvas:GetShape()   -- table, table, table <- void
 
 #### Return Values:
-**stroke** - The current stroke style. See Canvas:SetShape() for details.
-**fill** - The current fill style. See Canvas:SetShape() for details.
-**shape** - The current shape. See Canvas:SetShape() for details.
+**stroke** - The current stroke style. See Canvas:SetShape() for details.  
+**fill** - The current fill style. See Canvas:SetShape() for details.  
+**shape** - The current shape. See Canvas:SetShape() for details.  
 
 ### Canvas:SetShape
 Sets the canvas shape. Must have at least one of "fill" or "stroke".
@@ -662,12 +665,12 @@ Sets the canvas shape. Must have at least one of "fill" or "stroke".
     Canvas:SetShape(path, fill, stroke)   -- table, table, table
 
 #### Parameters:
-**path** - A path. Consists of a table containing a series of tables, with consecutive integer keys starting from 1. Each internal table contains coordinates, either as an absolute value relative to the top-left corner of the frame, or Proportional to the frame size, as a number from 0 to 1. Giving both an absolute value and a proportional value for any coordinate is not allowed. Members:
+**path** - A path. Consists of a table containing a series of tables, with consecutive integer keys starting from 1. Each internal table contains coordinates, either as an absolute value relative to the top-left corner of the frame, or Proportional to the frame size, as a number from 0 to 1. Giving both an absolute value and a proportional value for any coordinate is not allowed. Members:  
 				x/xProportional: x coordinate of this point. Required.
 				y/yProportional: y coordinate of this point. Required.
 				xControl/xControlProportional: x coordinate of the curve control handle. If this exists, yControl/yControlProportional must also exist.
 				yControl/yControlProportional: y coordinate of the curve control handle. If this exists, xControl/xControlProportional must also exist.
-**stroke** - A stroke style. Members:
+**stroke** - A stroke style. Members:  
 				r: Red color value, betwen 0 and 1. Required.
 				g: Green color value, betwen 0 and 1. Required.
 				b: Blue color value, betwen 0 and 1. Required.
@@ -676,7 +679,7 @@ Sets the canvas shape. Must have at least one of "fill" or "stroke".
 				miter: Corner behavior. May be "miter", "round", or "bevel". Defaults to "miter".
 				miterLimit: Determines how small the corner angle can be until the miter is chopped off. Defaults to 3. Available only if miter behavior is set to "miter".
 				thickness: Line thickness. Required.
-**fill** - A fill style. By default, "gradientLinear" spreads on the X axis, between 0 and 100. "gradientRadial" is centered around the local origin, with a radius of 100 units. "texture" starts at the origin and extends out to the texture size. Members:
+**fill** - A fill style. By default, "gradientLinear" spreads on the X axis, between 0 and 100. "gradientRadial" is centered around the local origin, with a radius of 100 units. "texture" starts at the origin and extends out to the texture size. Members:  
 				type: One of "solid", "gradientLinear", "gradientRadial", "texture". Required.
 				r: Red color value, betwen 0 and 1. Available and required for "solid".
 				g: Green color value, betwen 0 and 1. Available and required for "solid".
@@ -703,7 +706,7 @@ Returns the current mask shape.
     shape = Mask:GetShape()   -- table <- void
 
 #### Return Values:
-**shape** - The current shape. See Canvas:SetShape() for details.
+**shape** - The current shape. See Canvas:SetShape() for details.  
 
 ### Mask:SetShape
 Sets the mask shape. Note that masks with custom shapes will not cull mouse events according to the custom shape.
@@ -712,7 +715,7 @@ Sets the mask shape. Note that masks with custom shapes will not cull mouse even
     Mask:SetShape(path)   -- table
 
 #### Parameters:
-**path** - A path. Consists of a table containing a series of tables, with consecutive integer keys starting from 1. Each internal table contains coordinates, either as an absolute value relative to the top-left corner of the frame, or Proportional to the frame size, as a number from 0 to 1. Giving both an absolute value and a proportional value for any coordinate is not allowed. Members:
+**path** - A path. Consists of a table containing a series of tables, with consecutive integer keys starting from 1. Each internal table contains coordinates, either as an absolute value relative to the top-left corner of the frame, or Proportional to the frame size, as a number from 0 to 1. Giving both an absolute value and a proportional value for any coordinate is not allowed. Members:  
 				x/xProportional: x coordinate of this point. Required.
 				y/yProportional: y coordinate of this point. Required.
 				xControl/xControlProportional: x coordinate of the curve control handle. If this exists, yControl/yControlProportional must also exist.
@@ -726,7 +729,7 @@ Gets whether the button is enabled or grayed out.
     enabled = RiftButton:GetEnabled()   -- boolean <- void
 
 #### Return Values:
-**enabled** - The current enable state of this item.
+**enabled** - The current enable state of this item.  
 
 ### RiftButton:GetSkin
 Gets the current skin of this item.
@@ -734,7 +737,7 @@ Gets the current skin of this item.
     skin = RiftButton:GetSkin()   -- string <- void
 
 #### Return Values:
-**skin** - The current skin. Possible results include "default" and "close".
+**skin** - The current skin. Possible results include "default" and "close".  
 
 ### RiftButton:GetText
 Gets this button's text.
@@ -742,7 +745,7 @@ Gets this button's text.
     text = RiftButton:GetText()   -- string <- void
 
 #### Return Values:
-**text** - The current text of the element.
+**text** - The current text of the element.  
 
 ### RiftButton:SetEnabled
 Sets whether the button is enabled or grayed out.
@@ -750,7 +753,7 @@ Sets whether the button is enabled or grayed out.
     RiftButton:SetEnabled(enabled)   -- boolean
 
 #### Parameters:
-**enabled** - The new enable state of this item.
+**enabled** - The new enable state of this item.  
 
 ### RiftButton:SetSkin
 Sets the current skin of this item.
@@ -758,7 +761,7 @@ Sets the current skin of this item.
     RiftButton:SetSkin(skin)   -- string
 
 #### Parameters:
-**skin** - The new skin. Possible values are "default" and "close".
+**skin** - The new skin. Possible values are "default" and "close".  
 
 ### RiftButton:SetText
 Sets this button's text.
@@ -766,7 +769,7 @@ Sets this button's text.
     RiftButton:SetText(text)   -- string
 
 #### Parameters:
-**text** - The new text for the element.
+**text** - The new text for the element.  
 
 ## RiftCheckbox
 
@@ -776,7 +779,7 @@ Gets whether the button is checked or not.
     checked = RiftCheckbox:GetChecked()   -- boolean <- void
 
 #### Return Values:
-**checked** - The current checked state of this item.
+**checked** - The current checked state of this item.  
 
 ### RiftCheckbox:GetEnabled
 Gets whether the checkbox is enabled or grayed out.
@@ -784,7 +787,7 @@ Gets whether the checkbox is enabled or grayed out.
     enabled = RiftCheckbox:GetEnabled()   -- boolean <- void
 
 #### Return Values:
-**enabled** - The current enable state of this item.
+**enabled** - The current enable state of this item.  
 
 ### RiftCheckbox:SetChecked
 Sets whether the checkbox is checked or not.
@@ -792,7 +795,7 @@ Sets whether the checkbox is checked or not.
     RiftCheckbox:SetChecked(checked)   -- boolean
 
 #### Parameters:
-**checked** - The new checked state of this item.
+**checked** - The new checked state of this item.  
 
 ### RiftCheckbox:SetEnabled
 Sets whether the checkbox is enabled or grayed out.
@@ -800,7 +803,7 @@ Sets whether the checkbox is enabled or grayed out.
     RiftCheckbox:SetEnabled(enabled)   -- boolean
 
 #### Parameters:
-**enabled** - The new enable state of this item.
+**enabled** - The new enable state of this item.  
 
 ## RiftScrollBar
 
@@ -810,7 +813,7 @@ Gets whether the scrollbar is enabled or disabled.
     enabled = RiftScrollbar:GetEnabled()   -- boolean <- void
 
 #### Return Values:
-**enabled** - The current enable state of this item.
+**enabled** - The current enable state of this item.  
 
 ### RiftScrollbar:GetOrientation
 Gets the current orientation of the scrollbar.
@@ -818,7 +821,7 @@ Gets the current orientation of the scrollbar.
     orientation = RiftScrollbar:GetOrientation()   -- string <- void
 
 #### Return Values:
-**orientation** - The current orientation. Valid results include "vertical" and "horizontal".
+**orientation** - The current orientation. Valid results include "vertical" and "horizontal".  
 
 ### RiftScrollbar:GetPosition
 Returns the current position of the scrollbar.
@@ -826,7 +829,7 @@ Returns the current position of the scrollbar.
     position = RiftScrollbar:GetPosition()   -- number <- void
 
 #### Return Values:
-**position** - The current position of this scrollbar.
+**position** - The current position of this scrollbar.  
 
 ### RiftScrollbar:GetRange
 Returns the current range of the scrollbar.
@@ -834,8 +837,8 @@ Returns the current range of the scrollbar.
     minimum, maximum = RiftScrollbar:GetRange()   -- number, number <- void
 
 #### Return Values:
-**maximum** - The maximum value for the position of this slider.
-**minimum** - The minimum value for the position of this slider.
+**maximum** - The maximum value for the position of this slider.  
+**minimum** - The minimum value for the position of this slider.  
 
 ### RiftScrollbar:GetThickness
 Returns the thickness of the scrollbar handle. Size is relative to the range.
@@ -843,7 +846,7 @@ Returns the thickness of the scrollbar handle. Size is relative to the range.
     thickness = RiftScrollbar:GetThickness()   -- number <- void
 
 #### Return Values:
-**thickness** - The thickness of the handle.
+**thickness** - The thickness of the handle.  
 
 ### RiftScrollbar:Nudge
 Modify the scrollbar position, clamped to the current bounds.
@@ -851,7 +854,7 @@ Modify the scrollbar position, clamped to the current bounds.
     RiftScrollbar:Nudge(offset)   -- number
 
 #### Parameters:
-**offset** - The amount to nudge.
+**offset** - The amount to nudge.  
 
 ### RiftScrollbar:NudgeDown
 Shift the scrollbar down (i.e. away from zero) by a standard amount.
@@ -869,7 +872,7 @@ Sets whether the scrollbar is enabled or disabled.
     RiftScrollbar:SetEnabled(enabled)   -- boolean
 
 #### Parameters:
-**enabled** - The new enable state of this item.
+**enabled** - The new enable state of this item.  
 
 ### RiftScrollbar:SetOrientation
 Sets the orientation of the scrollbar.
@@ -877,7 +880,7 @@ Sets the orientation of the scrollbar.
     RiftScrollbar:SetOrientation(orientation)   -- string
 
 #### Parameters:
-**orientation** - The new orientation. Must be either "vertical" or "horizontal".
+**orientation** - The new orientation. Must be either "vertical" or "horizontal".  
 
 ### RiftScrollbar:SetPosition
 Changes the current position of the scrollbar.
@@ -885,7 +888,7 @@ Changes the current position of the scrollbar.
     RiftScrollbar:SetPosition(position)   -- number
 
 #### Parameters:
-**position** - The new position of this scrollbar. Must be within the current range.
+**position** - The new position of this scrollbar. Must be within the current range.  
 
 ### RiftScrollbar:SetRange
 Changes the current range of the scrollbar.
@@ -893,8 +896,8 @@ Changes the current range of the scrollbar.
     RiftScrollbar:SetRange(minimum, maximum)   -- number, number
 
 #### Parameters:
-**maximum** - The new maximum value for the position of this slider. Must be an integer and larger than or equal to "minimum".
-**minimum** - The new minimum value for the position of this slider. Must be an integer and smaller than or equal to "maximum".
+**maximum** - The new maximum value for the position of this slider. Must be an integer and larger than or equal to "minimum".  
+**minimum** - The new minimum value for the position of this slider. Must be an integer and smaller than or equal to "maximum".  
 
 ### RiftScrollbar:SetThickness
 Sets the current thickness of the scrollbar handle. Size is relative to the range.
@@ -902,7 +905,7 @@ Sets the current thickness of the scrollbar handle. Size is relative to the rang
     RiftScrollbar:SetThickness(thickness)   -- number
 
 #### Parameters:
-**thickness** - The new thickness of the handle.
+**thickness** - The new thickness of the handle.  
 
 ## RiftScrollbar Events
 
@@ -912,21 +915,23 @@ Signals a change in scrollbar position.
     Event.UI.Scrollbar.Change(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
+
 ### Event.UI.Scrollbar.Grab
 Signals that a scrollbar has been grabbed.
 
     Event.UI.Scrollbar.Grab(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
+
 ### Event.UI.Scrollbar.Release
 Signals that a scrollbar has been released.
 
     Event.UI.Scrollbar.Release(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
 
 ## RiftSlider
 
@@ -936,7 +941,7 @@ Gets whether the slider is enabled or grayed out.
     enabled = RiftSlider:GetEnabled()   -- boolean <- void
 
 #### Return Values:
-**enabled** - The current enable state of this item.
+**enabled** - The current enable state of this item.  
 
 ### RiftSlider:GetPosition
 Returns the current position of the slider.
@@ -944,7 +949,7 @@ Returns the current position of the slider.
     position = RiftSlider:GetPosition()   -- number <- void
 
 #### Return Values:
-**position** - The current position of this slider.
+**position** - The current position of this slider.  
 
 ### RiftSlider:GetRange
 Returns the current range of the slider.
@@ -952,8 +957,8 @@ Returns the current range of the slider.
     minimum, maximum = RiftSlider:GetRange()   -- number, number <- void
 
 #### Return Values:
-**maximum** - The maximum value for the position of this slider.
-**minimum** - The minimum value for the position of this slider.
+**maximum** - The maximum value for the position of this slider.  
+**minimum** - The minimum value for the position of this slider.  
 
 ### RiftSlider:SetEnabled
 Sets whether the slider is enabled or grayed out.
@@ -961,7 +966,7 @@ Sets whether the slider is enabled or grayed out.
     RiftSlider:SetEnabled(enabled)   -- boolean
 
 #### Parameters:
-**enabled** - The new enable state of this item.
+**enabled** - The new enable state of this item.  
 
 ### RiftSlider:SetPosition
 Changes the current position of the slider.
@@ -969,7 +974,7 @@ Changes the current position of the slider.
     RiftSlider:SetPosition(position)   -- number
 
 #### Parameters:
-**position** - The new position of this slider. Must be within the current range.
+**position** - The new position of this slider. Must be within the current range.  
 
 ### RiftSlider:SetRange
 Sets the current range of the slider.
@@ -977,8 +982,8 @@ Sets the current range of the slider.
     RiftSlider:SetRange(minimum, maximum)   -- number, number
 
 #### Parameters:
-**maximum** - The new maximum value for the position of this slider. Must be an integer and larger than or equal to "minimum".
-**minimum** - The new minimum value for the position of this slider. Must be an integer and smaller than or equal to "maximum".
+**maximum** - The new maximum value for the position of this slider. Must be an integer and larger than or equal to "minimum".  
+**minimum** - The new minimum value for the position of this slider. Must be an integer and smaller than or equal to "maximum".  
 
 ## RiftSlider Events
 
@@ -988,21 +993,23 @@ Signals a change in slider position.
     Event.UI.Slider.Change(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
+
 ### Event.UI.Slider.Grab
 Signals that a slider has been grabbed.
 
     Event.UI.Slider.Grab(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
+
 ### Event.UI.Slider.Release
 Signals that a slider has been released.
 
     Event.UI.Slider.Release(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
 
 ## RiftTextfield
 
@@ -1012,7 +1019,7 @@ Returns the current position of the cursor.
     cursor = RiftTextfield:GetCursor()   -- number <- void
 
 #### Return Values:
-**cursor** - The current position of this cursor. 0 indicates a cursor placed before any text.
+**cursor** - The current position of this cursor. 0 indicates a cursor placed before any text.  
 
 ### RiftTextfield:GetSelection
 Returns the current bounds of the selected text.
@@ -1020,8 +1027,8 @@ Returns the current bounds of the selected text.
     begin, end = RiftTextfield:GetSelection()   -- number, number <- void
 
 #### Return Values:
-**begin** - The beginning of the selected text, in the same format GetCursor uses. nil if there is no text selected.
-**end** - The end of the selected text, in the same format GetCursor uses. nil if there is no text selected.
+**begin** - The beginning of the selected text, in the same format GetCursor uses. nil if there is no text selected.  
+**end** - The end of the selected text, in the same format GetCursor uses. nil if there is no text selected.  
 
 ### RiftTextfield:GetSelectionText
 Get the current selected text for this element. Returns nil if no text has been selected.
@@ -1029,7 +1036,7 @@ Get the current selected text for this element. Returns nil if no text has been 
     text = RiftTextfield:GetSelectionText()   -- string <- void
 
 #### Return Values:
-**text** - The current text of the element.
+**text** - The current text of the element.  
 
 ### RiftTextfield:GetText
 Get the current text for this element.
@@ -1037,7 +1044,7 @@ Get the current text for this element.
     text = RiftTextfield:GetText()   -- string <- void
 
 #### Return Values:
-**text** - The current text of the element.
+**text** - The current text of the element.  
 
 ### RiftTextfield:SetCursor
 Changes the current position of the cursor.
@@ -1045,7 +1052,7 @@ Changes the current position of the cursor.
     RiftTextfield:SetCursor(cursor)   -- number
 
 #### Parameters:
-**cursor** - The new position of this cursor. Must be within the valid range.
+**cursor** - The new position of this cursor. Must be within the valid range.  
 
 ### RiftTextfield:SetSelection
 Sets the current bounds of the selected text. Call with no arguments to remove the current selection.
@@ -1054,8 +1061,8 @@ Sets the current bounds of the selected text. Call with no arguments to remove t
     RiftTextfield:SetSelection(begin, end)   -- number, number
 
 #### Parameters:
-**begin** - The new beginning of the selected text, in the same format SetCursor uses. Must be an integer and smaller than "end".
-**end** - The new end of the selected text, in the same format SetCursor uses. Must be an integer and larger than "begin".
+**begin** - The new beginning of the selected text, in the same format SetCursor uses. Must be an integer and smaller than "end".  
+**end** - The new end of the selected text, in the same format SetCursor uses. Must be an integer and larger than "begin".  
 
 ### RiftTextfield:SetText
 Set the current text for this element.
@@ -1063,7 +1070,7 @@ Set the current text for this element.
     RiftTextfield:SetText(text)   -- string
 
 #### Parameters:
-**text** - The new text for the element.
+**text** - The new text for the element.  
 
 ## RiftTextFueld Events
 
@@ -1073,14 +1080,15 @@ Signals a change in textfield contents.
     Event.UI.Textfield.Change(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
+
 ### Event.UI.Textfield.Select
 Signals a change in textfield selection.
 
     Event.UI.Textfield.Select(handle)
 
 #### Parameters:
-**handle** - nil
+**handle** - nil  
 
 ## RiftWindow
 
@@ -1090,7 +1098,7 @@ Gets the element representing the window border.
     border = RiftWindow:GetBorder()   -- Element <- void
 
 #### Return Values:
-**border** - The window border.
+**border** - The window border.  
 
 ### RiftWindow:GetContent
 Gets the element representing the window content area.
@@ -1098,14 +1106,15 @@ Gets the element representing the window content area.
     content = RiftWindow:GetContent()   -- Element <- void
 
 #### Return Values:
-**content** - The window content area.
+**content** - The window content area.  
+
 ### RiftWindow:GetController
 Gets the ID of the current controller for this window.
 
     controller = RiftWindow:GetController()   -- string <- void
 
 #### Return Values:
-**controller** - "border" or "content", whichever dictates the dimensions of the other.
+**controller** - "border" or "content", whichever dictates the dimensions of the other.  
 
 ### RiftWindow:GetTitle
 Get the current title for this element.
@@ -1113,7 +1122,7 @@ Get the current title for this element.
     title = RiftWindow:GetTitle()   -- string <- void
 
 #### Return Values:
-**title** - The current title of the element.
+**title** - The current title of the element.  
 
 ### RiftWindow:GetTrimDimensions
 Gets the thicknesses of the border's visual trim.
@@ -1121,10 +1130,10 @@ Gets the thicknesses of the border's visual trim.
     left, top, right, bottom = RiftWindow:GetTrimDimensions()   -- number, number, number, number <- void
 
 #### Return Values:
-**right** - The thickness of the right window border.
-**left** - The thickness of the left window border.
-**bottom** - The thickness of the bottom window border.
-**top** - The thickness of the top window border.
+**right** - The thickness of the right window border.  
+**left** - The thickness of the left window border.  
+**bottom** - The thickness of the bottom window border.  
+**top** - The thickness of the top window border.  
 
 ### RiftWindow:SetController
 Sets the current controller for this window. The controller will take on the exact dimensions of the RiftWindow object, and the other element will adjust accordingly.
@@ -1132,7 +1141,7 @@ Sets the current controller for this window. The controller will take on the exa
     RiftWindow:SetController(controller)   -- string
 
 #### Parameters:
-**controller** - The new controller ID. May be either "border" or "content".
+**controller** - The new controller ID. May be either "border" or "content".  
 
 #### Restrictions:
 Not permitted on a frame with the "restricted" SecureMode while the addon environment is secured.
@@ -1143,7 +1152,7 @@ Set the current title for this element.
     RiftWindow:SetTitle(title)   -- string
 
 #### Parameters:
-**title** - The new title for the element.
+**title** - The new title for the element.  
 
 ## RiftWindowBorder
 
@@ -1158,11 +1167,11 @@ Gets the current parameters for the Blur effect.
     effect = Text:GetEffectBlur()   -- nil <- void
 
 #### Return Values:
-**effect** - The current parameters for this effect. All members are optional. Pass nil to disable the effect.
+**effect** - The current parameters for this effect. All members are optional. Pass nil to disable the effect.  
 
 #### Returned Members:
-**blurY** - Controls how much blurring exists along the Y axis. Defaults to 2.
-**blurX** - Controls how much blurring exists along the X axis. Defaults to 2.
+**blurY** - Controls how much blurring exists along the Y axis. Defaults to 2.  
+**blurX** - Controls how much blurring exists along the X axis. Defaults to 2.  
 
 ### Text:GetEffectGlow
 Gets the current parameters for the Glow effect.
@@ -1171,20 +1180,20 @@ Gets the current parameters for the Glow effect.
     effect = Text:GetEffectGlow()   -- nil <- void
 
 #### Return Values:
-**effect** - The current parameters for this effect. All members are optional. Pass nil to disable the effect.
+**effect** - The current parameters for this effect. All members are optional. Pass nil to disable the effect.  
 
 #### Returned Members:
-**colorA** - Controls the alpha channel of the glow effect. Defaults to 1.
-**offsetY** - Controls the glow offset along the Y axis. Defaults to 0.
-**blurX** - Controls how much blurring exists along the X axis. Defaults to 2.
-**strength** - Controls the strength of the glow. Defaults to 1.
-**offsetX** - Controls the glow offset along the X axis. Defaults to 0.
-**replace** - Hides the original text. Defaults to false.
-**knockout** - Enables the "knockout" effect. Defaults to false.
-**colorG** - Controls the green channel of the glow effect. Defaults to 0.
-**colorR** - Controls the red channel of the glow effect. Defaults to 0.
-**colorB** - Controls the blue channel of the glow effect. Defaults to 0.
-**blurY** - Controls how much blurring exists along the Y axis. Defaults to 2.
+**colorA** - Controls the alpha channel of the glow effect. Defaults to 1.  
+**offsetY** - Controls the glow offset along the Y axis. Defaults to 0.  
+**blurX** - Controls how much blurring exists along the X axis. Defaults to 2.  
+**strength** - Controls the strength of the glow. Defaults to 1.  
+**offsetX** - Controls the glow offset along the X axis. Defaults to 0.  
+**replace** - Hides the original text. Defaults to false.  
+**knockout** - Enables the "knockout" effect. Defaults to false.  
+**colorG** - Controls the green channel of the glow effect. Defaults to 0.  
+**colorR** - Controls the red channel of the glow effect. Defaults to 0.  
+**colorB** - Controls the blue channel of the glow effect. Defaults to 0.  
+**blurY** - Controls how much blurring exists along the Y axis. Defaults to 2.  
 
 ### Text:GetFont
 Gets the current font used for this element.
@@ -1192,25 +1201,27 @@ Gets the current font used for this element.
     source, font = Text:GetFont()   -- string, string <- void
 
 #### Return Values:
-**font** - The actual font identifier. Either a resource identifier or a filename.
-**source** - The source of the resource. "Rift" will take the resource from Rift's internal data. Anything else will take the resource from the addon with that identifier.
+**font** - The actual font identifier. Either a resource identifier or a filename.  
+**source** - The source of the resource. "Rift" will take the resource from Rift's internal data. Anything else will take the resource from the addon with that identifier.  
+
 ### Text:GetFontColor
 Gets the current font color for this element.
 
     r, g, b, a = Text:GetFontColor()   -- number, number, number, number <- void
 
 #### Return Values:
-**b** - Blue.
-**r** - Red.
-**a** - Alpha. 1 is fully opaque, 0 is fully transparent.
-**g** - Green.
+**b** - Blue.  
+**r** - Red.  
+**a** - Alpha. 1 is fully opaque, 0 is fully transparent.  
+**g** - Green.  
+
 ### Text:GetFontSize
 Gets the font size of the current element.
 
     fontsize = Text:GetFontSize()   -- number <- void
 
 #### Return Values:
-**fontsize** - The current font size of this element.
+**fontsize** - The current font size of this element.  
 
 ### Text:GetText
 Get the current text for this element.
@@ -1218,8 +1229,8 @@ Get the current text for this element.
     text, html = Text:GetText()   -- string, boolean <- void
 
 #### Return Values:
-**text** - The current text of the element.
-**html** - The current HTML flag.
+**text** - The current text of the element.  
+**html** - The current HTML flag.  
 
 ### Text:GetWordwrap
 Gets the wordwrap flag for this element.
@@ -1227,7 +1238,7 @@ Gets the wordwrap flag for this element.
     wordwrap = Text:GetWordwrap()   -- boolean <- void
 
 #### Return Values:
-**wordwrap** - The current wordwrap flag for this element. If false, long lines will be truncated. Defaults to false.
+**wordwrap** - The current wordwrap flag for this element. If false, long lines will be truncated. Defaults to false.  
 
 ### Text:SetEffectBlur
 Sets the parameters for the Blur effect.
@@ -1236,11 +1247,11 @@ Sets the parameters for the Blur effect.
     Text:SetEffectBlur(effect)   -- nil
 
 #### Parameters:
-**effect** - The parameters for this effect. All members are optional. Pass nil to disable the effect.
+**effect** - The parameters for this effect. All members are optional. Pass nil to disable the effect.  
 
 #### Returned Members:
-**blurY** - Controls how much blurring exists along the Y axis. Defaults to 2.
-**blurX** - Controls how much blurring exists along the X axis. Defaults to 2.
+**blurY** - Controls how much blurring exists along the Y axis. Defaults to 2.  
+**blurX** - Controls how much blurring exists along the X axis. Defaults to 2.  
 
 ### Text:SetEffectGlow
 Sets the parameters for the Glow effect.
@@ -1249,20 +1260,20 @@ Sets the parameters for the Glow effect.
     Text:SetEffectGlow(effect)   -- nil
 
 #### Parameters:
-**effect** - The parameters for this effect. All members are optional. Pass nil to disable the effect.
+**effect** - The parameters for this effect. All members are optional. Pass nil to disable the effect.  
 
 #### Returned Members:
-**colorA** - Controls the alpha channel of the glow effect. Defaults to 1.
-**offsetY** - Controls the glow offset along the Y axis. Defaults to 0.
-**blurX** - Controls how much blurring exists along the X axis. Defaults to 2.
-**strength** - Controls the strength of the glow. Defaults to 1.
-**offsetX** - Controls the glow offset along the X axis. Defaults to 0.
-**replace** - Hides the original text. Defaults to false.
-**knockout** - Enables the "knockout" effect. Defaults to false.
-**colorG** - Controls the green channel of the glow effect. Defaults to 0.
-**colorR** - Controls the red channel of the glow effect. Defaults to 0.
-**colorB** - Controls the blue channel of the glow effect. Defaults to 0.
-**blurY** - Controls how much blurring exists along the Y axis. Defaults to 2.
+**colorA** - Controls the alpha channel of the glow effect. Defaults to 1.  
+**offsetY** - Controls the glow offset along the Y axis. Defaults to 0.  
+**blurX** - Controls how much blurring exists along the X axis. Defaults to 2.  
+**strength** - Controls the strength of the glow. Defaults to 1.  
+**offsetX** - Controls the glow offset along the X axis. Defaults to 0.  
+**replace** - Hides the original text. Defaults to false.  
+**knockout** - Enables the "knockout" effect. Defaults to false.  
+**colorG** - Controls the green channel of the glow effect. Defaults to 0.  
+**colorR** - Controls the red channel of the glow effect. Defaults to 0.  
+**colorB** - Controls the blue channel of the glow effect. Defaults to 0.  
+**blurY** - Controls how much blurring exists along the Y axis. Defaults to 2.  
 
 ### Text:SetFont
 Sets the current font used for this element.
@@ -1270,8 +1281,9 @@ Sets the current font used for this element.
     Text:SetFont(source, font)   -- string, string
 
 #### Parameters:
-**font** - The actual font identifier. Either a resource identifier or a filename.
-**source** - The source of the resource. "Rift" will take the resource from Rift's internal data. Anything else will take the resource from the addon with that identifier.
+**font** - The actual font identifier. Either a resource identifier or a filename.  
+**source** - The source of the resource. "Rift" will take the resource from Rift's internal data. Anything else will take the resource from the addon with that identifier.  
+
 ### Text:SetFontColor
 Sets the current font color for this element.
 
@@ -1279,17 +1291,18 @@ Sets the current font color for this element.
     Text:SetFontColor(r, g, b, a)   -- number, number, number, number
 
 #### Parameters:
-**b** - Blue.
-**r** - Red.
-**a** - Alpha. 1 is fully opaque, 0 is fully transparent. Defaults to 1.
-**g** - Green.
+**b** - Blue.  
+**r** - Red.  
+**a** - Alpha. 1 is fully opaque, 0 is fully transparent. Defaults to 1.  
+**g** - Green.  
+
 ### Text:SetFontSize
 Sets the current font size of this element.
 
     Text:SetFontSize(fontsize)   -- number
 
 #### Parameters:
-**fontsize** - The new font size of this element.
+**fontsize** - The new font size of this element.  
 
 ### Text:SetText
 Sets the current text for this element.
@@ -1298,8 +1311,8 @@ Sets the current text for this element.
     Text:SetText(text, html)   -- string, boolean
 
 #### Parameters:
-**text** - The new text for the element.
-**html** - Enables HTML mode. In HTML mode, a limited number of formatting tags are available: &lt;u>, &lt;font color="#rrggbb">, and &lt;a lua="print('This is a lua script.')">.
+**text** - The new text for the element.  
+**html** - Enables HTML mode. In HTML mode, a limited number of formatting tags are available: &lt;u>, &lt;font color="#rrggbb">, and &lt;a lua="print('This is a lua script.')">.  
 
 ### Text:SetWordwrap
 Sets the wordwrap flag for this element.
@@ -1307,7 +1320,7 @@ Sets the wordwrap flag for this element.
     Text:SetWordwrap(wordwrap)   -- boolean
 
 #### Parameters:
-**wordwrap** - The new wordwrap flag for this element. If false, long lines will be truncated. Defaults to false.
+**wordwrap** - The new wordwrap flag for this element. If false, long lines will be truncated. Defaults to false.  
 
 ## Texture
 
@@ -1317,22 +1330,24 @@ Gets the current texture used for this element.
     source, texture = Texture:GetTexture()   -- string, string <- void
 
 #### Return Values:
-**source** - The source of the resource. "Rift" will take the resource from Rift's internal data. Anything else will take the resource from the addon with that identifier.
-**texture** - The actual texture identifier. Either a resource identifier or a filename.
+**source** - The source of the resource. "Rift" will take the resource from Rift's internal data. Anything else will take the resource from the addon with that identifier.  
+**texture** - The actual texture identifier. Either a resource identifier or a filename.  
+
 ### Texture:GetTextureHeight
 Returns the actual pixel height of the current texture.
 
     height = Texture:GetTextureHeight()   -- number <- void
 
 #### Return Values:
-**height** - The height of the current texture in pixels.
+**height** - The height of the current texture in pixels.  
+
 ### Texture:GetTextureWidth
 Returns the actual pixel width of the current texture.
 
     width = Texture:GetTextureWidth()   -- number <- void
 
 #### Return Values:
-**width** - The width of the current texture in pixels.
+**width** - The width of the current texture in pixels.  
 
 ### Texture:SetTexture
 Sets the current texture used for this element.
@@ -1340,5 +1355,5 @@ Sets the current texture used for this element.
     Texture:SetTexture(source, texture)   -- string, string
 
 #### Parameters:
-**source** - The source of the resource. "Rift" will take the resource from Rift's internal data. Anything else will take the resource from the addon with that identifier.
-**texture** - The actual texture identifier. Either a resource identifier or a filename.
+**source** - The source of the resource. "Rift" will take the resource from Rift's internal data. Anything else will take the resource from the addon with that identifier.  
+**texture** - The actual texture identifier. Either a resource identifier or a filename.  
